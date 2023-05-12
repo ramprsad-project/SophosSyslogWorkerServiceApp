@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SophosSyslogWorkerService"
   ],
+  "SelectedNode": "\\SophosSyslogWorkerService\\Worker.cs",
   "PreviewInSolutionExplorer": false
 }
