@@ -1,17 +1,25 @@
+using Microsoft.Extensions.Configuration;
+
 namespace SophosSyslogWorkerService
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
+        public IConfiguration _config;
+        public string? _token { get; set; }
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, IConfiguration config)
         {
-            _logger = logger;
+            _logger = logger; 
+            _config = config;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            try { }
+            try
+            {
+                _token = new BearerToken().GetBearerToken(_config);
+            }
             catch (Exception ex) { _logger.LogError(ex.ToString()); }
             return base.StartAsync(cancellationToken);
         }
@@ -22,8 +30,9 @@ namespace SophosSyslogWorkerService
             {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                    await Task.Delay(1000, stoppingToken);
+                    DBLogging dbobj = new DBLogging(_config);
+                    dbobj.ExecuteSaveSystemEventsToDB(_token);
+                    await Task.Delay(10000, stoppingToken);
                 }
             }
             catch (Exception ex) { _logger.LogError(ex.ToString()); }
