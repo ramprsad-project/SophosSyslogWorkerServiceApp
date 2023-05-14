@@ -18,6 +18,7 @@ namespace SophosSyslogWorkerService
         {
             try
             {
+                _logger.LogInformation("Worker started at: {time}", DateTimeOffset.Now);
                 _token = new BearerToken().GetBearerToken(_config);
             }
             catch (Exception ex) { _logger.LogError(ex.ToString()); }
@@ -28,11 +29,12 @@ namespace SophosSyslogWorkerService
         {
             try
             {
+                _logger.LogInformation("Worker In Process at: {time}", DateTimeOffset.Now);
                 while (!stoppingToken.IsCancellationRequested)
                 {
                     DBLogging dbobj = new DBLogging(_config);
                     dbobj.ExecuteSaveSystemEventsToDB(_token);
-                    await Task.Delay(10000, stoppingToken);
+                    await Task.Delay(5000, stoppingToken);
                 }
             }
             catch (Exception ex) { _logger.LogError(ex.ToString()); }
@@ -40,7 +42,7 @@ namespace SophosSyslogWorkerService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            try { }
+            try { _logger.LogInformation("Worker stopped at: {time}", DateTimeOffset.Now); }
             catch (Exception ex) { _logger.LogError(ex.ToString()); }
             return base.StopAsync(cancellationToken);
         }
