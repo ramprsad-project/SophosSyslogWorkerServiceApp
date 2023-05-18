@@ -17,11 +17,11 @@ namespace SophosSyslogWorkerService
             _configuration = configuration;
         }
 
-        public static void MonitorSystemEvents(string? eventType,string? userId,string? when)
+        public static void MonitorSystemEvents(string? eventType, string? userId, string? when)
         {
             foreach (EventAction eventAction in _eventAction)
             {
-                if(eventAction.Type == eventType)
+                if (eventAction.Type == eventType)
                 {
                     SendNotification(userId, when);
                 }
@@ -36,7 +36,7 @@ namespace SophosSyslogWorkerService
             {
                 if (user.ID == userId)
                 {
-                    
+
                 }
             }
         }
@@ -92,9 +92,9 @@ namespace SophosSyslogWorkerService
 
             return user;
         }
-    
 
-    private EventAction MapEventActionValues(NpgsqlDataReader reader)
+
+        private EventAction MapEventActionValues(NpgsqlDataReader reader)
         {
             string? name = reader["event_class_name"] as string;
             string? type = reader["event_type_name"] as string;
@@ -125,7 +125,7 @@ namespace SophosSyslogWorkerService
         public string? SecondaryMobile { get; set; }
     }
 
-   internal class EventAction
+    internal class EventAction
     {
         public string? Name { get; set; }
         public string? Type { get; set; }
@@ -133,5 +133,4 @@ namespace SophosSyslogWorkerService
         public string? ByEmail { get; set; }
         public string? BySMS { get; set; }
     }
-
 }
