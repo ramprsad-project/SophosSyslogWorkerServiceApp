@@ -4,6 +4,7 @@ using Serilog.Events;
 using Serilog.Formatting;
 using SophosSyslogWorkerService;
 
+
 var configurationBuilder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -26,7 +27,8 @@ IHost host = Host.CreateDefaultBuilder(args)
         .ConfigureServices(services =>
         {
             services.AddHostedService<Worker>();
-        }).Build();
-
+        })
+        .UseWindowsService()
+        .Build();
 
 await host.RunAsync();
