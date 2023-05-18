@@ -1,9 +1,13 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace SophosSyslogWorkerService
 {
@@ -39,6 +43,45 @@ namespace SophosSyslogWorkerService
 
                 }
             }
+        }
+        public static void Email(string htmlString, string subject, string from, string to, string fromPwd)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress(from);
+                message.To.Add(new MailAddress(to));
+                message.Subject = subject;
+                message.IsBodyHtml = true; //to make message body as html
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com"; //for gmail host
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(from, fromPwd);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception) { }
+        }
+        public string SendMobileSMS(string number, string message, string sender)
+        {
+            string result = String.Empty;
+            String _message = HttpUtility.UrlEncode(message);
+
+            using (var wb = new WebClient())
+            {
+                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
+                {
+                {"apikey" , "yourapiKey"},
+                {"numbers" , number},
+                {"message" , _message},
+                {"sender" , sender}
+                });
+                result = Encoding.UTF8.GetString(response);
+            }
+            return result;
         }
 
         public void GetUserDetails()
