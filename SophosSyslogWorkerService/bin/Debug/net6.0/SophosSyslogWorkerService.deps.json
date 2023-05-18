@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "SophosSyslogWorkerService/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Hosting.WindowsServices": "6.0.16",
           "Microsoft.Extensions.Hosting": "6.0.1",
+          "Microsoft.Extensions.Hosting.WindowsServices": "6.0.1",
           "Newtonsoft.Json": "13.0.3",
           "Npgsql": "7.0.4",
           "RestSharp": "110.2.0",
@@ -17,6 +19,17 @@
         },
         "runtime": {
           "SophosSyslogWorkerService.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Hosting.WindowsServices/6.0.16": {
+        "dependencies": {
+          "System.ServiceProcess.ServiceController": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Hosting.WindowsServices.dll": {
+            "assemblyVersion": "6.0.16.0",
+            "fileVersion": "6.0.1623.17406"
+          }
         }
       },
       "Microsoft.CSharp/4.5.0": {},
@@ -189,6 +202,19 @@
           "lib/net6.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting.WindowsServices/6.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Hosting": "6.0.1",
+          "Microsoft.Extensions.Logging.EventLog": "6.0.0",
+          "System.ServiceProcess.ServiceController": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Hosting.WindowsServices.dll": {
+            "assemblyVersion": "6.0.0.1",
+            "fileVersion": "6.0.1022.47605"
           }
         }
       },
@@ -506,6 +532,25 @@
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.Cryptography.Cng/4.5.0": {},
+      "System.ServiceProcess.ServiceController/6.0.0": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.ServiceProcess.ServiceController.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.ServiceProcess.ServiceController.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -551,6 +596,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AspNetCore.Hosting.WindowsServices/6.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QWgmw6hZ8Qx+Tur81y5pgpmrmxYC5gpLjUg9KsRbXNnnYXakPu7bIMpNafWkpOB/5T89KofIBiGciKlbEW7RJQ==",
+      "path": "microsoft.aspnetcore.hosting.windowsservices/6.0.16",
+      "hashPath": "microsoft.aspnetcore.hosting.windowsservices.6.0.16.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -670,6 +722,13 @@
       "sha512": "sha512-43n9Je09z0p/7ViPxfRqs5BUItRLNVh5b6JH40F2Agkh2NBsY/jpNYTtbCcxrHCsA3oRmbR6RJBzUutB4VZvNQ==",
       "path": "microsoft.extensions.hosting.abstractions/7.0.0",
       "hashPath": "microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.WindowsServices/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0vaOeMeDpVUqvOJ0pHugoOqTZULdq7c0kZLzzlrQwUZ7ScUat27d8hrK3IxJ7FWF3OBZXSjA2nWYRcdA5WG9wg==",
+      "path": "microsoft.extensions.hosting.windowsservices/6.0.1",
+      "hashPath": "microsoft.extensions.hosting.windowsservices.6.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/7.0.0": {
       "type": "package",
@@ -901,6 +960,13 @@
       "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    },
+    "System.ServiceProcess.ServiceController/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qMBvG8ZFbkXoe0Z5/D7FAAadfPkH2v7vSuh2xsLf3U6jNoejpIdeV18A0htiASsLK1CCAc/p59kaLXlt2yB1gw==",
+      "path": "system.serviceprocess.servicecontroller/6.0.0",
+      "hashPath": "system.serviceprocess.servicecontroller.6.0.0.nupkg.sha512"
     },
     "System.Text.Encoding/4.3.0": {
       "type": "package",
