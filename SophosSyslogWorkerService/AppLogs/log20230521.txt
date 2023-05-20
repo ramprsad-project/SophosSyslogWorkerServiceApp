@@ -1,0 +1,7 @@
+2023-05-21 04:37:04.620 +05:30 [DBG] Hosting starting
+2023-05-21 04:37:04.705 +05:30 [INF] Worker started at: "2023-05-21T04:37:04.7006773+05:30"
+2023-05-21 04:37:06.407 +05:30 [INF] Worker In Process at: "2023-05-21T04:37:06.4071524+05:30"
+2023-05-21 04:37:18.093 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 04:37:18.094 +05:30 [INF] Hosting environment: Development
+2023-05-21 04:37:18.096 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 04:37:18.096 +05:30 [DBG] Hosting started

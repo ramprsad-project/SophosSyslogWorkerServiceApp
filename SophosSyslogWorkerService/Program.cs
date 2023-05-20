@@ -22,6 +22,7 @@ IHost host = Host.CreateDefaultBuilder(args)
             services.AddHostedService<Worker>();
         })
         .UseWindowsService()
+        .UseSerilog()
         .Build();
 
 await host.RunAsync();
