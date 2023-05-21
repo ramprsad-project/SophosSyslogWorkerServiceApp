@@ -28,40 +28,40 @@ namespace SophosSyslogWorkerService
             _dbcon = dbcon;
         }
 
-        public void MonitorSystemEvents(string? eventType, string? userId, string? when)
+        public void MonitorSystemEvents(Item item)
         {
             GetActionDetails();
             foreach (EventAction eventAction in _eventAction)
             {
                 GetUserDetails();
                 
-                if (eventAction.Type == eventType)
+                if (eventAction.Type == item.type)
                 {
-                    SendNotification(userId, when, eventAction);
+                    SendNotification(item, eventAction);
                 }
             }
         }
 
-        public void SendNotification(string? userId, string? when, EventAction eventAction)
+        public void SendNotification(Item item, EventAction eventAction)
         {
-            string? phoneNumber = null;
+            string htmlString = "<html>\r\n<head>\r\n  <title>Website Policy Violation Notice</title>\r\n  <style>\r\n    body {\r\n      font-family: Arial, sans-serif;\r\n      line-height: 1.6;\r\n    }\r\n\r\n    h1 {\r\n      color: #333333;\r\n      font-size: 24px;\r\n      margin-bottom: 20px;\r\n    }\r\n\r\n    p {\r\n      margin-bottom: 10px;\r\n    }\r\n\r\n    .highlight {\r\n      background-color: #ffd700;\r\n      padding: 5px;\r\n      font-weight: bold;\r\n    }\r\n\r\n    .details {\r\n      margin-top: 20px;\r\n      padding: 10px;\r\n      background-color: #f5f5f5;\r\n      border: 1px solid #dddddd;\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <h1>Website Policy Violation Notice</h1>\r\n  <p>Dear User,</p>\r\n  <p>We regret to inform you that you are trying to access the website which was blocked due to a policy violation.</p>\r\n  <div class=\"details\">\r\n    <p><span class=\"highlight\">Website URL:</span> www.example.com</p>\r\n    <p><span class=\"highlight\">Violation Type:</span> "+ eventAction.Type +".</p>\r\n    <p>Please review our policies and guidelines to understand what changes need to be made to comply with our standards. Once you have rectified the issue, please notify us immediately so that we can reassess the situation.</p>\r\n    <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <h5>support@bigdogbusiness.com</h5></p>\r\n    <p>Sincerely,</p>\r\n    <p><h4>BigDog Business Team</h4></p>\r\n  </div>\r\n</body>\r\n</html>\r\n";
             foreach (User user in _users)
             {
-                //if (user.ID == userId)
-                //{
-                if ((bool)eventAction.ByEmail)
+                if (Convert.ToString(user.ID) == item.endpoint_id)
                 {
-                    SendEmail("<h1>BigDog Business Inc.</h1> \n You are trying to Violate the Web Policy on " + when, "Information Message from BigDog Business.", "analyst.dbrp@gmail.com", "ram.prasad@navasoftware.com", "idujwwmmqfxzgzsm");
+                    if ((bool)eventAction.ByEmail)
+                    {
+                        SendEmail(htmlString, _configuration.GetSection("EmailAuthDetails").GetSection("Subject").Value, _configuration.GetSection("EmailAuthDetails").GetSection("From").Value, _configuration.GetSection("EmailAuthDetails").GetSection("To").Value, _configuration.GetSection("EmailAuthDetails").GetSection("Password").Value);
+                    }
+                    if ((bool)eventAction.BySMS)
+                    {
+                        SendSMS(_configuration.GetSection("SMSAuthDetails").GetSection("FromMobileNumber").Value, "You are Violate the Web Policy on " + item.when, "BigDog Business");
+                    }
                 }
-                if ((bool)eventAction.BySMS)
-                {
-                    SendSMS("+919591435112", "You are trying to Violate the Web Policy on " + when, "BigDog Business");
-                }
-                //}
             }
         }
 
-        public void SendEmail(string htmlString, string subject, string from, string to, string fromPwd)
+        public void SendEmail(string? htmlString, string? subject, string? from, string? to, string? fromPwd)
         {
             try
             {
@@ -85,16 +85,16 @@ namespace SophosSyslogWorkerService
             catch (Exception) { }
         }
 
-        public string SendSMS(string number, string message, string sender)
+        public string SendSMS(string? number, string? message, string? sender)
         {
             string result = String.Empty;
-            var accountSid = "ACe32ee6f225828c8a93c6e3fb14444c78";
-            var authToken = "c67d42a6c3188d8b9829eef525085d95";
+            var accountSid = _configuration.GetSection("SMSAuthDetails").GetSection("AccountSID").Value;
+            var authToken = _configuration.GetSection("SMSAuthDetails").GetSection("AuthToken").Value;
             TwilioClient.Init(accountSid, authToken);
 
             var messageOptions = new CreateMessageOptions(
               new PhoneNumber(number));
-            messageOptions.From = new PhoneNumber("+12545365213");
+            messageOptions.From = new PhoneNumber(_configuration.GetSection("SMSAuthDetails").GetSection("RegisteredMobileNumber").Value);
             messageOptions.Body = "This message is from" + sender + ":" + message;
 
 
@@ -178,6 +178,7 @@ namespace SophosSyslogWorkerService
                  }).ToList();
             return eventAction;
         }
+
     }
 
     internal class User
