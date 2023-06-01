@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "S3PRG18vv/TtLJXgbXeAK92NDoB7ZIdXCJvVPoijTpTC/Gus2ZaTch0UWhLkkKf9lBAarvmLAjde9PAQpEbrWQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER27\\source\\repos\\SophosSyslogWorkerServiceApp\\SophosSyslogServiceSetup\\SophosSyslogServiceSetup.wapproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.1\\microsoft.windows.sdk.buildtools.10.0.22621.1.nupkg.sha512"
+  ],
+  "logs": []
+}
