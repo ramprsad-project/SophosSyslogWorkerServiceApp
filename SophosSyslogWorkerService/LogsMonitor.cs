@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
 using Twilio;
@@ -51,11 +52,11 @@ namespace SophosSyslogWorkerService
                 {
                     if ((bool)eventAction.ByEmail)
                     {
-                        SendEmail(htmlString, _configuration.GetSection("EmailAuthDetails").GetSection("Subject").Value, _configuration.GetSection("EmailAuthDetails").GetSection("From").Value, _configuration.GetSection("EmailAuthDetails").GetSection("To").Value, _configuration.GetSection("EmailAuthDetails").GetSection("Password").Value);
+                        SendEmail(htmlString, _configuration.GetSection("EmailAuthDetails").GetSection("Subject").Value, _configuration.GetSection("EmailAuthDetails").GetSection("From").Value, user.PrimaryEmail, _configuration.GetSection("EmailAuthDetails").GetSection("Password").Value);
                     }
                     if ((bool)eventAction.BySMS)
                     {
-                        SendSMS(_configuration.GetSection("SMSAuthDetails").GetSection("FromMobileNumber").Value, "You are Violate the Web Policy on " + item.when, "BigDog Business");
+                        SendSMS(user.PrimaryMobile, "You have Violated the Web Policy on " + item.when, "BigDog Business");//_configuration.GetSection("SMSAuthDetails").GetSection("FromMobileNumber").Value
                     }
                 }
             }
@@ -179,6 +180,19 @@ namespace SophosSyslogWorkerService
             return eventAction;
         }
 
+        private bool IsValidPolicy()
+        {
+            return true;
+        }
+
+        public bool ApplyPolicyToUser()
+        {
+            if (IsValidPolicy())
+            {
+                return true;
+            }
+            return false;
+        }
     }
 
     internal class User
@@ -198,5 +212,16 @@ namespace SophosSyslogWorkerService
         public string? Action { get; set; }
         public bool? ByEmail { get; set; }
         public bool? BySMS { get; set; }
+    }
+    //id, policy_id, name, type, created_by, created_on, is_deleted, settings
+    internal class Policy_Details
+    {
+        public Guid PolicyID { get; set; }
+        public string? Name { get; set; }
+        public string? Type { get; set; }
+        public bool? CreatedBy { get; set; }
+        public bool? CreateOn { get; set; }
+        public bool? IsDeleted { get; set; }
+        public JsonElement Settings { get; set; }
     }
 }

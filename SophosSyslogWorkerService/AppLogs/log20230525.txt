@@ -1,0 +1,24 @@
+2023-05-25 20:02:36.427 +05:30 [DBG] Hosting starting
+2023-05-25 20:02:36.498 +05:30 [INF] Worker started at: "2023-05-25T20:02:36.4942053+05:30"
+2023-05-25 20:02:39.547 +05:30 [INF] Worker In Process at: "2023-05-25T20:02:39.5475447+05:30"
+2023-05-25 20:02:49.549 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-25 20:02:49.552 +05:30 [INF] Hosting environment: Development
+2023-05-25 20:02:49.553 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-25 20:02:49.554 +05:30 [DBG] Hosting started
+2023-05-25 21:09:57.040 +05:30 [DBG] Hosting starting
+2023-05-25 21:09:57.254 +05:30 [INF] Worker started at: "2023-05-25T21:09:57.2393540+05:30"
+2023-05-25 21:09:59.500 +05:30 [INF] Worker In Process at: "2023-05-25T21:09:59.5001647+05:30"
+2023-05-25 21:10:10.993 +05:30 [ERR] Twilio.Exceptions.ApiException: Permission to send an SMS has not been enabled for the region indicated by the 'To' number: +16178280004.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at SophosSyslogWorkerService.LogsMonitor.SendSMS(String number, String message, String sender) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 101
+   at SophosSyslogWorkerService.LogsMonitor.SendNotification(Item item, EventAction eventAction) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 58
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(Item item) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 40
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(Item item) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 25
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 49
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-05-25 21:10:10.997 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-25 21:10:10.998 +05:30 [INF] Hosting environment: Development
+2023-05-25 21:10:11.000 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-25 21:10:11.001 +05:30 [DBG] Hosting started
