@@ -11,7 +11,6 @@ namespace SophosSyslogWorkerService.Mapping
                 new PolicyDetails(row.Field<int>("id"), row.Field<Guid>("policy_id"), row.Field<string>("name"), row.Field<string>("type"), row.Field<string>("created_by"), row.Field<DateTime>("created_on"), row.Field<string>("settings"), row.Field<Guid>("owner_id"), row.Field<bool>("is_deleted"))).ToList();
             return policyDetails;
         }
-
         public static IList<User> MapUserValues(DataTable dtSophos)
         {
             IList<User> users = dtSophos.AsEnumerable().Select(row =>
