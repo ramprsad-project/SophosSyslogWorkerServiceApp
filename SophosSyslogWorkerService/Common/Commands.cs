@@ -15,5 +15,7 @@ namespace SophosSyslogWorkerService.Common
         public static string? GetActionDetails = "SELECT event_class_name, event_type_name, event_action_name, event_action_by_mail, event_action_by_sms FROM event_action_details;";
 
         public static string? InsertSystemEvents = "INSERT INTO sophos_system_events(event_id, severity, name, location, type, created_at, source_info_ip, customer_id, endpoint_type, endpoint_id, user_id, when_occured, source, group_action) VALUES ('";
+
+        public static string? GetLastRecordDateTime = "SELECT created_at FROM sophos_system_events ORDER BY id DESC LIMIT 1;";
     }
 }

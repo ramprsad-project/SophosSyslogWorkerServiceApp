@@ -25,9 +25,19 @@ namespace SophosSyslogWorkerService
             HttpResponseMessage response =  client.GetAsync(_tenantAPIUrl).Result;
             TenantDetailsObject = JObject.Parse( response.Content.ReadAsStringAsync().Result);
         }
-        public JObject GetTenants()
+        public List<string> GetTenants()
         {
-            JObject? data = TenantDetailsObject;
+            List<string> data = new List<string>();
+                //TenantDetailsObject.Descendants()
+                //                                .OfType<JProperty>()
+                //                                .Where(a => a.Name == "id")
+                //                                .Select(a => a.Value.ToString())
+                //                                .ToArray();
+            JArray myArray = (JArray)TenantDetailsObject["items"];
+            foreach (JObject item in myArray)
+            {
+                data.Add((string)item["id"]);
+            }
             return data;
         }
 

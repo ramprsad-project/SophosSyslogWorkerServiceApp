@@ -26,11 +26,16 @@ namespace SophosSyslogWorkerService
         /// </summary>
         /// <param name="item"></param>
         /// <param name="_eventAction"></param>
-        public void MonitorSystemEvents(Item item, List<EventAction> _eventAction)
+        public void MonitorSystemEvents(Item item)
         {
+            bool IsNewEndpoint = false;
             NotificationOperations notificationOperations = new NotificationOperations(_configuration);
-            bool isuser = PolicyOperations.ApplyPolicyToUser(_configuration);
-            DBLogging.GetActionDetails(_configuration, _dbcon);
+
+            if (IsNewEndpoint)
+            {
+                bool isApplied = PolicyOperations.ApplyPolicyToUser(_configuration);
+            }
+            List<EventAction> _eventAction = DBLogging.GetActionDetails(_configuration, _dbcon);
             foreach (EventAction eventAction in _eventAction)
             {
                 notificationOperations.GetUserDetails(_configuration, _dbcon);

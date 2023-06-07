@@ -41,8 +41,6 @@ namespace SophosSyslogWorkerService.Operations
             finally { _dbcon.Close(); }
         }
 
-
-
         public  void SendNotification(Item item, EventAction eventAction)
         {
             string htmlString = "<html>\r\n<head>\r\n  <title>" + eventAction.Type + "</title>\r\n  <style>\r\n    body {\r\n      font-family: Arial, sans-serif;\r\n      line-height: 1.6;\r\n    }\r\n\r\n    h1 {\r\n      color: #333333;\r\n      font-size: 24px;\r\n      margin-bottom: 20px;\r\n    }\r\n\r\n    p {\r\n      margin-bottom: 10px;\r\n    }\r\n\r\n    .highlight {\r\n      background-color: #ffd700;\r\n      padding: 5px;\r\n      font-weight: bold;\r\n    }\r\n\r\n    .details {\r\n      margin-top: 20px;\r\n      padding: 10px;\r\n      background-color: #f5f5f5;\r\n      border: 1px solid #dddddd;\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <h1>Policy Violation Notice</h1>\r\n  <p>Dear User,</p>\r\n  <p>We regret to inform you that you are trying to violating the policy.</p>\r\n  <div class=\"details\">\r\n    <p><span class=\"highlight\">Policy Category:</span> " + eventAction.Name + "</p>\r\n    <p><span class=\"highlight\">Violation Type:</span> " + eventAction.Type + ".</p>\r\n    <p>Please review our policies and guidelines to understand what changes need to be made to comply with our standards. Once you have rectified the issue, please notify us immediately so that we can reassess the situation.</p>\r\n    <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <h5>support@bigdogbusiness.com</h5></p>\r\n    <p>Sincerely,</p>\r\n    <p><h4>BigDog Business Team</h4></p>\r\n  </div>\r\n</body>\r\n</html>\r\n";
@@ -56,7 +54,7 @@ namespace SophosSyslogWorkerService.Operations
                     }
                     if ((bool)eventAction.BySMS)
                     {
-                        SendSMS(user.PrimaryMobile, "You have Violated the Web Policy on " + item.when, "BigDog Business");//_configuration.GetSection("SMSAuthDetails").GetSection("FromMobileNumber").Value
+                        SendSMS(user.PrimaryMobile, "You have Violated the Web Policy on " + item.when, "BigDog Business Inc.");
                     }
                 }
             }
