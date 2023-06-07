@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Npgsql;
+using SophosSyslogWorkerService.Common;
+using SophosSyslogWorkerService.Models;
 
 namespace SophosSyslogWorkerService
 {
@@ -18,8 +20,7 @@ namespace SophosSyslogWorkerService
             NpgsqlCommand dbcmd = dbcon.CreateCommand();
             try
             {
-                string sql1 = "INSERT INTO sophossystemevents(event_id, severity, name, location, type, created_at, source_info_ip, customer_id, endpoint_type, endpoint_id, user_id, when_occured, source, group_action) " +
-                " VALUES ('" + item.id + "','" + item.severity + "','" + item.name + "','" + item.location + "','" + item.type + "','" + item.created_at + "','" + item.source_info.ip + "','" + item.customer_id + "','" + item.endpoint_type + "','" + item.endpoint_id + "','" + item.user_id + "','" + item.when + "','" + item.source + "','" + item.group + "')";
+                string sql1 = Commands.InsertSystemEvents + item.id + "','" + item.severity + "','" + item.name + "','" + item.location + "','" + item.type + "','" + item.created_at + "','" + item.source_info.ip + "','" + item.customer_id + "','" + item.endpoint_type + "','" + item.endpoint_id + "','" + item.user_id + "','" + item.when + "','" + item.source + "','" + item.group + "')";
                 dbcmd.CommandText = sql1;
                 dbcmd.ExecuteNonQuery();
                 new LogsMonitor(_configuration, dbcon).MonitorSystemEvents(item);

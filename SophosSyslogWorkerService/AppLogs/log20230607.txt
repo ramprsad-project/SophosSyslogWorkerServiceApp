@@ -1,0 +1,228 @@
+2023-06-07 06:47:33.774 +05:30 [DBG] Hosting starting
+2023-06-07 06:47:33.850 +05:30 [INF] Worker started at: "2023-06-07T06:47:33.8456962+05:30"
+2023-06-07 06:47:36.313 +05:30 [INF] Worker In Process at: "2023-06-07T06:47:36.3137314+05:30"
+2023-06-07 06:51:12.843 +05:30 [DBG] Hosting starting
+2023-06-07 06:51:12.937 +05:30 [INF] Worker started at: "2023-06-07T06:51:12.9333737+05:30"
+2023-06-07 06:51:14.502 +05:30 [INF] Worker In Process at: "2023-06-07T06:51:14.5022089+05:30"
+2023-06-07 06:51:19.015 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 06:51:19.016 +05:30 [INF] Hosting environment: Development
+2023-06-07 06:51:19.017 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 06:51:19.018 +05:30 [DBG] Hosting started
+2023-06-07 06:54:26.688 +05:30 [DBG] Hosting starting
+2023-06-07 06:54:26.804 +05:30 [INF] Worker started at: "2023-06-07T06:54:26.8005736+05:30"
+2023-06-07 06:54:28.488 +05:30 [INF] Worker In Process at: "2023-06-07T06:54:28.4881845+05:30"
+2023-06-07 06:55:15.037 +05:30 [ERR] System.NullReferenceException: Object reference not set to an instance of an object.
+   at SophosSyslogWorkerService.LogsMonitor.ApplyPolicyToUser() in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 235
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 35
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 24
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 48
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-06-07 06:55:15.039 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 06:55:15.039 +05:30 [INF] Hosting environment: Development
+2023-06-07 06:55:15.040 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 06:55:15.040 +05:30 [DBG] Hosting started
+2023-06-07 06:55:25.817 +05:30 [DBG] Hosting starting
+2023-06-07 06:55:25.942 +05:30 [INF] Worker started at: "2023-06-07T06:55:25.9322823+05:30"
+2023-06-07 06:55:27.778 +05:30 [INF] Worker In Process at: "2023-06-07T06:55:27.7788331+05:30"
+2023-06-07 06:56:36.608 +05:30 [ERR] System.NullReferenceException: Object reference not set to an instance of an object.
+   at SophosSyslogWorkerService.LogsMonitor.ApplyPolicyToUser() in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 235
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 35
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 24
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 48
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-06-07 06:56:36.609 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 06:56:36.609 +05:30 [INF] Hosting environment: Development
+2023-06-07 06:56:36.610 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 06:56:36.611 +05:30 [DBG] Hosting started
+2023-06-07 06:56:44.162 +05:30 [DBG] Hosting starting
+2023-06-07 06:56:44.299 +05:30 [INF] Worker started at: "2023-06-07T06:56:44.2844499+05:30"
+2023-06-07 06:56:45.797 +05:30 [INF] Worker In Process at: "2023-06-07T06:56:45.7978485+05:30"
+2023-06-07 07:07:53.262 +05:30 [DBG] Hosting starting
+2023-06-07 07:07:53.376 +05:30 [INF] Worker started at: "2023-06-07T07:07:53.3697810+05:30"
+2023-06-07 07:07:55.860 +05:30 [INF] Worker In Process at: "2023-06-07T07:07:55.8602993+05:30"
+2023-06-07 07:34:23.529 +05:30 [DBG] Hosting starting
+2023-06-07 07:34:23.622 +05:30 [INF] Worker started at: "2023-06-07T07:34:23.6176909+05:30"
+2023-06-07 07:34:35.518 +05:30 [ERR] System.AggregateException: One or more errors occurred. (No such host is known. (id.sophos.com:443))
+ ---> System.Net.Http.HttpRequestException: No such host is known. (id.sophos.com:443)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at SophosSyslogWorkerService.BearerToken.GetBearerToken(IConfiguration _configuration) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\BearerToken.cs:line 44
+   at SophosSyslogWorkerService.Worker.StartAsync(CancellationToken cancellationToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 22
+2023-06-07 07:34:35.524 +05:30 [INF] Worker In Process at: "2023-06-07T07:34:35.5242683+05:30"
+2023-06-07 07:34:52.211 +05:30 [DBG] Hosting starting
+2023-06-07 07:34:52.334 +05:30 [INF] Worker started at: "2023-06-07T07:34:52.3252692+05:30"
+2023-06-07 07:34:55.260 +05:30 [INF] Worker In Process at: "2023-06-07T07:34:55.2603183+05:30"
+2023-06-07 07:35:10.492 +05:30 [DBG] Hosting starting
+2023-06-07 07:35:10.631 +05:30 [INF] Worker started at: "2023-06-07T07:35:10.6214054+05:30"
+2023-06-07 07:35:24.215 +05:30 [INF] Worker In Process at: "2023-06-07T07:35:24.2149874+05:30"
+2023-06-07 07:36:39.353 +05:30 [DBG] Hosting starting
+2023-06-07 07:36:39.480 +05:30 [INF] Worker started at: "2023-06-07T07:36:39.4723537+05:30"
+2023-06-07 07:36:51.136 +05:30 [ERR] System.AggregateException: One or more errors occurred. (No such host is known. (id.sophos.com:443))
+ ---> System.Net.Http.HttpRequestException: No such host is known. (id.sophos.com:443)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at SophosSyslogWorkerService.BearerToken.GetBearerToken(IConfiguration _configuration) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\BearerToken.cs:line 44
+   at SophosSyslogWorkerService.Worker.StartAsync(CancellationToken cancellationToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 22
+2023-06-07 07:36:51.143 +05:30 [INF] Worker In Process at: "2023-06-07T07:36:51.1437256+05:30"
+2023-06-07 07:37:27.229 +05:30 [ERR] System.AggregateException: One or more errors occurred. (No such host is known. (api.central.sophos.com:443))
+ ---> System.Net.Http.HttpRequestException: No such host is known. (api.central.sophos.com:443)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at SophosSyslogWorkerService.TenantDetails.GetTenantDetails() in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\TenantDetails.cs:line 32
+   at SophosSyslogWorkerService.TenantDetails..ctor(IConfiguration configuration, String token, String tenantAPIUrl) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\TenantDetails.cs:line 25
+   at SophosSyslogWorkerService.SystemEvents.GetTenantEvents(IConfiguration _configuration, String _token, String _endpointEventsAPIUrl) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\SystemEvents.cs:line 21
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 43
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-06-07 07:37:27.233 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 07:37:27.234 +05:30 [INF] Hosting environment: Development
+2023-06-07 07:37:27.236 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 07:37:27.237 +05:30 [DBG] Hosting started
+2023-06-07 07:37:47.502 +05:30 [DBG] Hosting starting
+2023-06-07 07:37:47.635 +05:30 [INF] Worker started at: "2023-06-07T07:37:47.6260481+05:30"
+2023-06-07 07:37:59.251 +05:30 [ERR] System.AggregateException: One or more errors occurred. (No such host is known. (id.sophos.com:443))
+ ---> System.Net.Http.HttpRequestException: No such host is known. (id.sophos.com:443)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at SophosSyslogWorkerService.BearerToken.GetBearerToken(IConfiguration _configuration) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\BearerToken.cs:line 44
+   at SophosSyslogWorkerService.Worker.StartAsync(CancellationToken cancellationToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 22
+2023-06-07 07:37:59.254 +05:30 [INF] Worker In Process at: "2023-06-07T07:37:59.2547712+05:30"
+2023-06-07 07:38:38.176 +05:30 [DBG] Hosting starting
+2023-06-07 07:38:38.311 +05:30 [INF] Worker started at: "2023-06-07T07:38:38.2961393+05:30"
+2023-06-07 07:43:48.890 +05:30 [DBG] Hosting starting
+2023-06-07 07:43:49.027 +05:30 [INF] Worker started at: "2023-06-07T07:43:49.0204518+05:30"
+2023-06-07 07:43:52.353 +05:30 [INF] Worker In Process at: "2023-06-07T07:43:52.3534267+05:30"
+2023-06-07 07:46:07.708 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 07:46:07.709 +05:30 [INF] Hosting environment: Development
+2023-06-07 07:46:07.710 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 07:46:07.712 +05:30 [DBG] Hosting started
+2023-06-07 07:48:37.846 +05:30 [DBG] Hosting starting
+2023-06-07 07:48:37.943 +05:30 [INF] Worker started at: "2023-06-07T07:48:37.9355159+05:30"
+2023-06-07 07:48:40.141 +05:30 [INF] Worker In Process at: "2023-06-07T07:48:40.1417120+05:30"
+2023-06-07 07:51:01.915 +05:30 [DBG] Hosting starting
+2023-06-07 07:51:02.018 +05:30 [INF] Worker started at: "2023-06-07T07:51:02.0113769+05:30"
+2023-06-07 07:51:25.572 +05:30 [INF] Worker In Process at: "2023-06-07T07:51:25.5721359+05:30"
+2023-06-07 07:55:18.473 +05:30 [DBG] Hosting starting
+2023-06-07 07:55:18.588 +05:30 [INF] Worker started at: "2023-06-07T07:55:18.5788128+05:30"
+2023-06-07 07:55:28.110 +05:30 [INF] Worker In Process at: "2023-06-07T07:55:28.1101777+05:30"
+2023-06-07 07:56:47.469 +05:30 [DBG] Hosting starting
+2023-06-07 07:56:47.589 +05:30 [INF] Worker started at: "2023-06-07T07:56:47.5820234+05:30"
+2023-06-07 07:56:52.642 +05:30 [INF] Worker In Process at: "2023-06-07T07:56:52.6420950+05:30"
+2023-06-07 08:05:41.314 +05:30 [DBG] Hosting starting
+2023-06-07 08:05:41.401 +05:30 [INF] Worker started at: "2023-06-07T08:05:41.3965335+05:30"
+2023-06-07 08:05:53.539 +05:30 [ERR] System.AggregateException: One or more errors occurred. (No such host is known. (id.sophos.com:443))
+ ---> System.Net.Http.HttpRequestException: No such host is known. (id.sophos.com:443)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at SophosSyslogWorkerService.BearerToken.GetBearerToken(IConfiguration _configuration) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\BearerToken.cs:line 44
+   at SophosSyslogWorkerService.Worker.StartAsync(CancellationToken cancellationToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 22
+2023-06-07 08:05:53.545 +05:30 [INF] Worker In Process at: "2023-06-07T08:05:53.5451157+05:30"
+2023-06-07 08:06:22.201 +05:30 [ERR] System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at SophosSyslogWorkerService.TenantDetails.GetTenantID() in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\TenantDetails.cs:line 43
+   at SophosSyslogWorkerService.SystemEvents.GetTenantEvents(IConfiguration _configuration, String _token, String _endpointEventsAPIUrl) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\SystemEvents.cs:line 21
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 43
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-06-07 08:06:22.205 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 08:06:22.206 +05:30 [INF] Hosting environment: Development
+2023-06-07 08:06:22.207 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 08:06:22.207 +05:30 [DBG] Hosting started
+2023-06-07 08:07:06.385 +05:30 [DBG] Hosting starting
+2023-06-07 08:07:06.523 +05:30 [INF] Worker started at: "2023-06-07T08:07:06.5151723+05:30"
+2023-06-07 08:07:08.487 +05:30 [INF] Worker In Process at: "2023-06-07T08:07:08.4870453+05:30"
+2023-06-07 09:00:33.948 +05:30 [DBG] Hosting starting
+2023-06-07 09:00:34.037 +05:30 [INF] Worker started at: "2023-06-07T09:00:34.0306777+05:30"
+2023-06-07 09:00:37.353 +05:30 [INF] Worker In Process at: "2023-06-07T09:00:37.3538711+05:30"
+2023-06-07 09:02:36.859 +05:30 [DBG] Hosting starting
+2023-06-07 09:02:37.059 +05:30 [INF] Worker started at: "2023-06-07T09:02:37.0555924+05:30"
+2023-06-07 09:02:38.751 +05:30 [INF] Worker In Process at: "2023-06-07T09:02:38.7511297+05:30"
+2023-06-07 09:03:25.432 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-07 09:03:25.433 +05:30 [INF] Hosting environment: Development
+2023-06-07 09:03:25.434 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-07 09:03:25.435 +05:30 [DBG] Hosting started

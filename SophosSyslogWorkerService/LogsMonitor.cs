@@ -1,15 +1,9 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using SophosSyslogWorkerService.Common;
+using SophosSyslogWorkerService.Models;
 using System.Data;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Web;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -20,6 +14,7 @@ namespace SophosSyslogWorkerService
     {
         public List<User>? _users { get; set; }
         public List<EventAction>? _eventAction { get; set; }
+        public List<PolicyDetails>? _policyDetails { get; set; }
         public IConfiguration? _configuration { get; set; }
         public NpgsqlConnection? _dbcon { get; set; }
 
@@ -31,21 +26,22 @@ namespace SophosSyslogWorkerService
 
         public void MonitorSystemEvents(Item item)
         {
-            GetActionDetails();
-            foreach (EventAction eventAction in _eventAction)
-            {
-                GetUserDetails();
-                
-                if (eventAction.Type == item.type)
-                {
-                    SendNotification(item, eventAction);
-                }
-            }
+            ApplyPolicyToUser();
+            //GetActionDetails();
+            //foreach (EventAction eventAction in _eventAction)
+            //{
+            //    GetUserDetails();
+
+            //    if (eventAction.Type == item.type)
+            //    {
+            //        SendNotification(item, eventAction);
+            //    }
+            //}
         }
 
         public void SendNotification(Item item, EventAction eventAction)
         {
-            string htmlString = "<html>\r\n<head>\r\n  <title>Website Policy Violation Notice</title>\r\n  <style>\r\n    body {\r\n      font-family: Arial, sans-serif;\r\n      line-height: 1.6;\r\n    }\r\n\r\n    h1 {\r\n      color: #333333;\r\n      font-size: 24px;\r\n      margin-bottom: 20px;\r\n    }\r\n\r\n    p {\r\n      margin-bottom: 10px;\r\n    }\r\n\r\n    .highlight {\r\n      background-color: #ffd700;\r\n      padding: 5px;\r\n      font-weight: bold;\r\n    }\r\n\r\n    .details {\r\n      margin-top: 20px;\r\n      padding: 10px;\r\n      background-color: #f5f5f5;\r\n      border: 1px solid #dddddd;\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <h1>Website Policy Violation Notice</h1>\r\n  <p>Dear User,</p>\r\n  <p>We regret to inform you that you are trying to access the website which was blocked due to a policy violation.</p>\r\n  <div class=\"details\">\r\n    <p><span class=\"highlight\">Website URL:</span> www.example.com</p>\r\n    <p><span class=\"highlight\">Violation Type:</span> "+ eventAction.Type +".</p>\r\n    <p>Please review our policies and guidelines to understand what changes need to be made to comply with our standards. Once you have rectified the issue, please notify us immediately so that we can reassess the situation.</p>\r\n    <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <h5>support@bigdogbusiness.com</h5></p>\r\n    <p>Sincerely,</p>\r\n    <p><h4>BigDog Business Team</h4></p>\r\n  </div>\r\n</body>\r\n</html>\r\n";
+            string htmlString = "<html>\r\n<head>\r\n  <title>"+ eventAction.Type + "</title>\r\n  <style>\r\n    body {\r\n      font-family: Arial, sans-serif;\r\n      line-height: 1.6;\r\n    }\r\n\r\n    h1 {\r\n      color: #333333;\r\n      font-size: 24px;\r\n      margin-bottom: 20px;\r\n    }\r\n\r\n    p {\r\n      margin-bottom: 10px;\r\n    }\r\n\r\n    .highlight {\r\n      background-color: #ffd700;\r\n      padding: 5px;\r\n      font-weight: bold;\r\n    }\r\n\r\n    .details {\r\n      margin-top: 20px;\r\n      padding: 10px;\r\n      background-color: #f5f5f5;\r\n      border: 1px solid #dddddd;\r\n    }\r\n  </style>\r\n</head>\r\n<body>\r\n  <h1>Policy Violation Notice</h1>\r\n  <p>Dear User,</p>\r\n  <p>We regret to inform you that you are trying to violating the policy.</p>\r\n  <div class=\"details\">\r\n    <p><span class=\"highlight\">Policy Category:</span> "+ eventAction.Name+ "</p>\r\n    <p><span class=\"highlight\">Violation Type:</span> " + eventAction.Type + ".</p>\r\n    <p>Please review our policies and guidelines to understand what changes need to be made to comply with our standards. Once you have rectified the issue, please notify us immediately so that we can reassess the situation.</p>\r\n    <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <h5>support@bigdogbusiness.com</h5></p>\r\n    <p>Sincerely,</p>\r\n    <p><h4>BigDog Business Team</h4></p>\r\n  </div>\r\n</body>\r\n</html>\r\n";
             foreach (User user in _users)
             {
                 if (Convert.ToString(user.ID) == item.endpoint_id)
@@ -103,15 +99,38 @@ namespace SophosSyslogWorkerService
             return result;
         }
 
+        public void GetPolicyDetails()
+        {
+            string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
+            //string commandText = "";
+            DataSet dsPolicyDetails = new DataSet();
+            DataTable dtPolicyDetails = new DataTable();
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(Commands.GetPolicyDetails, new NpgsqlConnection(connstring));
+                // reset DataSet before i do
+                dsPolicyDetails.Reset();
+
+                // filling DataSet with result from NpgsqlDataAdapter
+                dataAdapter.Fill(dsPolicyDetails);
+
+                // since it C# DataSet can handle multiple tables, we will select first
+                dtPolicyDetails = dsPolicyDetails.Tables[0];
+                _policyDetails = MapPolicyDetailValues(dtPolicyDetails).ToList<PolicyDetails>();
+            }
+            catch { }
+            finally { _dbcon.Close(); }
+        }
+
         public void GetUserDetails()
         {
             string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
-            string commandText = "SELECT user_id, user_name, user_email_primary, user_email_secondary, user_mobile_primary, user_mobile_secondary FROM user_details where user_status = true;";
+            //string commandText = "";
             DataSet dsSophos = new DataSet();
             DataTable dtSophos = new DataTable();
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandText, new NpgsqlConnection(connstring));
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(Commands.GetUserDetails, new NpgsqlConnection(connstring));
                 // reset DataSet before i do
                 dsSophos.Reset();
 
@@ -129,12 +148,12 @@ namespace SophosSyslogWorkerService
         public void GetActionDetails()
         {
             string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
-            string commandText = "SELECT event_class_name, event_type_name, event_action_name, event_action_by_mail, event_action_by_sms FROM event_action_details;";
+            //string commandText = "";
             DataSet dsSophos = new DataSet();
             DataTable dtSophos = new DataTable();
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandText, new NpgsqlConnection(connstring));
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(Commands.GetActionDetails, new NpgsqlConnection(connstring));
                 // reset DataSet before i do
                 dsSophos.Reset();
 
@@ -148,6 +167,13 @@ namespace SophosSyslogWorkerService
             }
             catch { }
             finally { _dbcon.Close(); }
+        }
+
+        private IList<PolicyDetails> MapPolicyDetailValues(DataTable dtPolicyDetails)
+        {
+            IList<PolicyDetails> policyDetails = dtPolicyDetails.AsEnumerable().Select(row =>
+                new PolicyDetails(row.Field<int>("id"), row.Field<Guid>("policy_id"), row.Field<string>("name"), row.Field<string>("type"), row.Field<string>("created_by"), row.Field<DateTime>("created_on"), row.Field<string>("settings"), row.Field<Guid>("owner_id"), row.Field<bool>("is_deleted"))).ToList();
+            return policyDetails;
         }
 
         private IList<User> MapUserValues(DataTable dtSophos)
@@ -187,41 +213,17 @@ namespace SophosSyslogWorkerService
 
         public bool ApplyPolicyToUser()
         {
+            GetPolicyDetails();
+            
             if (IsValidPolicy())
             {
+                foreach (PolicyDetails policy in _policyDetails)
+                {
+                    string uid = policy.settings;
+                }
                 return true;
             }
             return false;
         }
-    }
-
-    internal class User
-    {
-        public Guid? ID { get; set; }
-        public string? Name { get; set; }
-        public string? PrimaryEmail { get; set; }
-        public string? SecondaryEmail { get; set; }
-        public string? PrimaryMobile { get; set; }
-        public string? SecondaryMobile { get; set; }
-    }
-
-    internal class EventAction
-    {
-        public string? Name { get; set; }
-        public string? Type { get; set; }
-        public string? Action { get; set; }
-        public bool? ByEmail { get; set; }
-        public bool? BySMS { get; set; }
-    }
-    //id, policy_id, name, type, created_by, created_on, is_deleted, settings
-    internal class Policy_Details
-    {
-        public Guid PolicyID { get; set; }
-        public string? Name { get; set; }
-        public string? Type { get; set; }
-        public bool? CreatedBy { get; set; }
-        public bool? CreateOn { get; set; }
-        public bool? IsDeleted { get; set; }
-        public JsonElement Settings { get; set; }
     }
 }

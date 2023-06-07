@@ -1,18 +1,9 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
-
-namespace SophosSyslogWorkerService
+﻿namespace SophosSyslogWorkerService
 {
     internal class SystemEvents
     {
         /// <summary>
-        /// 
+        /// GetTenantEvents
         /// </summary>
         /// <returns></returns>
         public string GetTenantEvents(IConfiguration _configuration, string? _token, string? _endpointEventsAPIUrl)
