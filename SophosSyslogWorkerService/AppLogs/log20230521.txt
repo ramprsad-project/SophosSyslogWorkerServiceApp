@@ -1,0 +1,92 @@
+2023-05-21 04:37:04.620 +05:30 [DBG] Hosting starting
+2023-05-21 04:37:04.705 +05:30 [INF] Worker started at: "2023-05-21T04:37:04.7006773+05:30"
+2023-05-21 04:37:06.407 +05:30 [INF] Worker In Process at: "2023-05-21T04:37:06.4071524+05:30"
+2023-05-21 04:37:18.093 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 04:37:18.094 +05:30 [INF] Hosting environment: Development
+2023-05-21 04:37:18.096 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 04:37:18.096 +05:30 [DBG] Hosting started
+2023-05-21 04:39:53.060 +05:30 [DBG] Hosting starting
+2023-05-21 04:39:53.231 +05:30 [INF] Worker started at: "2023-05-21T04:39:53.2245769+05:30"
+2023-05-21 04:39:54.954 +05:30 [INF] Worker In Process at: "2023-05-21T04:39:54.9548905+05:30"
+2023-05-21 04:40:05.532 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 04:40:05.540 +05:30 [INF] Hosting environment: Development
+2023-05-21 04:40:05.543 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 04:40:05.545 +05:30 [DBG] Hosting started
+2023-05-21 04:43:27.061 +05:30 [ERR] Twilio.Exceptions.ApiException: Authenticate
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at SophosSyslogWorkerService.LogsMonitor.SendSMS(String number, String message, String sender) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 101
+   at SophosSyslogWorkerService.LogsMonitor.SendNotification(String userId, String when, EventAction eventAction) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 58
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(String eventType, String userId, String when) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 40
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(String event_id, String severity, String name, String location, String type, String created_at, String source_info_ip, String customer_id, String endpoint_type, String endpoint_id, String user_id, String when_occured, String source, String group_action) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 25
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 49
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-05-21 04:50:29.438 +05:30 [DBG] Hosting starting
+2023-05-21 04:50:29.669 +05:30 [INF] Worker started at: "2023-05-21T04:50:29.6550980+05:30"
+2023-05-21 04:50:32.102 +05:30 [INF] Worker In Process at: "2023-05-21T04:50:32.1025480+05:30"
+2023-05-21 04:50:42.339 +05:30 [ERR] Twilio.Exceptions.ApiException: Authenticate
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at SophosSyslogWorkerService.LogsMonitor.SendSMS(String number, String message, String sender) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 101
+   at SophosSyslogWorkerService.LogsMonitor.SendNotification(String userId, String when, EventAction eventAction) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 58
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(String eventType, String userId, String when) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 40
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(String event_id, String severity, String name, String location, String type, String created_at, String source_info_ip, String customer_id, String endpoint_type, String endpoint_id, String user_id, String when_occured, String source, String group_action) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 25
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 49
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-05-21 04:50:42.342 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 04:50:42.343 +05:30 [INF] Hosting environment: Development
+2023-05-21 04:50:42.344 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 04:50:42.345 +05:30 [DBG] Hosting started
+2023-05-21 04:51:28.088 +05:30 [DBG] Hosting starting
+2023-05-21 04:51:28.196 +05:30 [INF] Worker started at: "2023-05-21T04:51:28.1896958+05:30"
+2023-05-21 04:51:30.217 +05:30 [INF] Worker In Process at: "2023-05-21T04:51:30.2179398+05:30"
+2023-05-21 04:52:01.879 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 04:52:01.883 +05:30 [INF] Hosting environment: Development
+2023-05-21 04:52:01.891 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 04:52:01.893 +05:30 [DBG] Hosting started
+2023-05-21 05:56:02.232 +05:30 [DBG] Hosting starting
+2023-05-21 05:56:02.341 +05:30 [INF] Worker started at: "2023-05-21T05:56:02.3356032+05:30"
+2023-05-21 05:56:03.933 +05:30 [INF] Worker In Process at: "2023-05-21T05:56:03.9335394+05:30"
+2023-05-21 05:58:05.844 +05:30 [DBG] Hosting starting
+2023-05-21 05:58:05.946 +05:30 [INF] Worker started at: "2023-05-21T05:58:05.9408763+05:30"
+2023-05-21 05:58:07.473 +05:30 [INF] Worker In Process at: "2023-05-21T05:58:07.4731417+05:30"
+2023-05-21 05:59:53.828 +05:30 [DBG] Hosting starting
+2023-05-21 05:59:53.954 +05:30 [INF] Worker started at: "2023-05-21T05:59:53.9461710+05:30"
+2023-05-21 05:59:55.915 +05:30 [INF] Worker In Process at: "2023-05-21T05:59:55.9149760+05:30"
+2023-05-21 06:00:44.256 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 06:00:44.257 +05:30 [INF] Hosting environment: Development
+2023-05-21 06:00:44.259 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 06:00:44.263 +05:30 [DBG] Hosting started
+2023-05-21 06:08:49.960 +05:30 [DBG] Hosting starting
+2023-05-21 06:08:50.123 +05:30 [INF] Worker started at: "2023-05-21T06:08:50.1168977+05:30"
+2023-05-21 06:08:51.636 +05:30 [INF] Worker In Process at: "2023-05-21T06:08:51.6366444+05:30"
+2023-05-21 06:19:38.329 +05:30 [DBG] Hosting starting
+2023-05-21 06:19:38.451 +05:30 [INF] Worker started at: "2023-05-21T06:19:38.4434798+05:30"
+2023-05-21 06:19:40.474 +05:30 [INF] Worker In Process at: "2023-05-21T06:19:40.4747301+05:30"
+2023-05-21 06:19:52.482 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 06:19:52.483 +05:30 [INF] Hosting environment: Development
+2023-05-21 06:19:52.485 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 06:19:52.486 +05:30 [DBG] Hosting started
+2023-05-21 06:27:31.356 +05:30 [DBG] Hosting starting
+2023-05-21 06:27:31.466 +05:30 [INF] Worker started at: "2023-05-21T06:27:31.4608519+05:30"
+2023-05-21 06:27:33.328 +05:30 [INF] Worker In Process at: "2023-05-21T06:27:33.3288437+05:30"
+2023-05-21 06:27:45.424 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 06:27:45.427 +05:30 [INF] Hosting environment: Development
+2023-05-21 06:27:45.432 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 06:27:45.433 +05:30 [DBG] Hosting started
+2023-05-21 06:39:09.263 +05:30 [DBG] Hosting starting
+2023-05-21 06:39:09.407 +05:30 [INF] Worker started at: "2023-05-21T06:39:09.3987859+05:30"
+2023-05-21 06:39:11.441 +05:30 [INF] Worker In Process at: "2023-05-21T06:39:11.4410819+05:30"
+2023-05-21 06:39:26.709 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 06:39:26.713 +05:30 [INF] Hosting environment: Development
+2023-05-21 06:39:26.719 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 06:39:26.721 +05:30 [DBG] Hosting started
+2023-05-21 06:43:55.024 +05:30 [DBG] Hosting starting
+2023-05-21 06:43:55.210 +05:30 [INF] Worker started at: "2023-05-21T06:43:55.1989238+05:30"
+2023-05-21 06:43:57.373 +05:30 [INF] Worker In Process at: "2023-05-21T06:43:57.3732918+05:30"
+2023-05-21 06:44:12.315 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-21 06:44:12.321 +05:30 [INF] Hosting environment: Development
+2023-05-21 06:44:12.327 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-21 06:44:12.329 +05:30 [DBG] Hosting started

@@ -1,12 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json.Linq;
+using SophosSyslogWorkerService.Common;
 
 namespace SophosSyslogWorkerService
 {
@@ -32,9 +25,19 @@ namespace SophosSyslogWorkerService
             HttpResponseMessage response =  client.GetAsync(_tenantAPIUrl).Result;
             TenantDetailsObject = JObject.Parse( response.Content.ReadAsStringAsync().Result);
         }
-        public JObject GetTenants()
+        public List<string> GetTenants()
         {
-            JObject? data = TenantDetailsObject;
+            List<string> data = new List<string>();
+                //TenantDetailsObject.Descendants()
+                //                                .OfType<JProperty>()
+                //                                .Where(a => a.Name == "id")
+                //                                .Select(a => a.Value.ToString())
+                //                                .ToArray();
+            JArray myArray = (JArray)TenantDetailsObject["items"];
+            foreach (JObject item in myArray)
+            {
+                data.Add((string)item["id"]);
+            }
             return data;
         }
 

@@ -1,0 +1,17 @@
+2023-06-06 15:46:13.695 +05:30 [DBG] Hosting starting
+2023-06-06 15:46:13.785 +05:30 [INF] Worker started at: "2023-06-06T15:46:13.7790007+05:30"
+2023-06-06 15:46:15.469 +05:30 [INF] Worker In Process at: "2023-06-06T15:46:15.4692041+05:30"
+2023-06-06 15:46:30.244 +05:30 [ERR] Twilio.Exceptions.ApiException: Permission to send an SMS has not been enabled for the region indicated by the 'To' number: +16178280004.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at SophosSyslogWorkerService.LogsMonitor.SendSMS(String number, String message, String sender) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 102
+   at SophosSyslogWorkerService.LogsMonitor.SendNotification(Item item, EventAction eventAction) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 59
+   at SophosSyslogWorkerService.LogsMonitor.MonitorSystemEvents(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\LogsMonitor.cs:line 41
+   at SophosSyslogWorkerService.DBLogging.SaveSystemEventsToDB(Item item) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 25
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 49
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-06-06 15:46:30.245 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-06 15:46:30.246 +05:30 [INF] Hosting environment: Development
+2023-06-06 15:46:30.246 +05:30 [INF] Content root path: D:\projects\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-06-06 15:46:30.247 +05:30 [DBG] Hosting started

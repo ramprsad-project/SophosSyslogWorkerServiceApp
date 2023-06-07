@@ -1,0 +1,22 @@
+2023-05-24 21:18:31.325 +05:30 [DBG] Hosting starting
+2023-05-24 21:18:31.748 +05:30 [INF] Worker started at: "2023-05-24T21:18:31.7216410+05:30"
+2023-05-24 21:18:35.342 +05:30 [INF] Worker In Process at: "2023-05-24T21:18:35.3427235+05:30"
+2023-05-24 21:18:43.106 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-24 21:18:43.107 +05:30 [INF] Hosting environment: Development
+2023-05-24 21:18:43.111 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-24 21:18:43.113 +05:30 [DBG] Hosting started
+2023-05-24 21:38:02.021 +05:30 [ERR] System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at SophosSyslogWorkerService.TenantDetails.GetTenantID() in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\TenantDetails.cs:line 43
+   at SophosSyslogWorkerService.SystemEvents.GetTenantEvents(IConfiguration _configuration, String _token, String _endpointEventsAPIUrl) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\SystemEvents.cs:line 21
+   at SophosSyslogWorkerService.DBLogging.ExecuteSaveSystemEventsToDB(String token) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\DBLogging.cs:line 44
+   at SophosSyslogWorkerService.Worker.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService\Worker.cs:line 36
+2023-05-24 21:39:15.682 +05:30 [DBG] Hosting starting
+2023-05-24 21:39:15.843 +05:30 [INF] Worker started at: "2023-05-24T21:39:15.8298137+05:30"
+2023-05-24 21:39:18.265 +05:30 [INF] Worker In Process at: "2023-05-24T21:39:18.2651100+05:30"
+2023-05-24 21:40:15.417 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-24 21:40:15.420 +05:30 [INF] Hosting environment: Development
+2023-05-24 21:40:15.421 +05:30 [INF] Content root path: C:\Users\USER27\source\repos\SophosSyslogWorkerServiceApp\SophosSyslogWorkerService
+2023-05-24 21:40:15.422 +05:30 [DBG] Hosting started
