@@ -1,12 +1,12 @@
 ﻿using Npgsql;
 
-namespace SophosSyslogWorkerService
+namespace SophosSyslogWorkerService.Common
 {
     internal class DBCRUDOperations
     {
-        public NpgsqlDataReader Read(string command,IConfiguration? _configuration)
+        public NpgsqlDataReader Read(string command, IConfiguration? _configuration)
         {
-            
+
             string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
             NpgsqlConnection dbcon = new NpgsqlConnection(connstring);
             dbcon.Open();

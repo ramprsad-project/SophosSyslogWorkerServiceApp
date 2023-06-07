@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Headers;
 
-namespace SophosSyslogWorkerService
+namespace SophosSyslogWorkerService.Common
 {
     internal class GenerateHttpClient
     {

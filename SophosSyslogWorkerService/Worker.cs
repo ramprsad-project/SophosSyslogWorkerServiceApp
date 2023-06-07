@@ -1,3 +1,5 @@
+using SophosSyslogWorkerService.Common;
+
 namespace SophosSyslogWorkerService
 {
     public class Worker : BackgroundService

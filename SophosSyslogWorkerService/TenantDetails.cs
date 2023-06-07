@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using SophosSyslogWorkerService.Common;
 
 namespace SophosSyslogWorkerService
 {

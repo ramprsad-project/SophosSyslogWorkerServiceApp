@@ -1,4 +1,6 @@
-﻿namespace SophosSyslogWorkerService
+﻿using SophosSyslogWorkerService.Common;
+
+namespace SophosSyslogWorkerService
 {
     internal class SystemEvents
     {

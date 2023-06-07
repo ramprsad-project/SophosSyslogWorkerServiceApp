@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Npgsql;
-using SophosSyslogWorkerService.Common;
 using SophosSyslogWorkerService.Models;
 
-namespace SophosSyslogWorkerService
+namespace SophosSyslogWorkerService.Common
 {
     internal class DBLogging
     {

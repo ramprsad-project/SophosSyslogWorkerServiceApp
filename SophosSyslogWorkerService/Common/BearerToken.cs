@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
-namespace SophosSyslogWorkerService
+namespace SophosSyslogWorkerService.Common
 {
     internal class BearerToken
     {
