@@ -7,6 +7,7 @@ using System.Net.Mail;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
+using SophosSyslogWorkerService.Mapping;
 
 namespace SophosSyslogWorkerService
 {
@@ -94,38 +95,13 @@ namespace SophosSyslogWorkerService
             messageOptions.From = new PhoneNumber(_configuration.GetSection("SMSAuthDetails").GetSection("RegisteredMobileNumber").Value);
             messageOptions.Body = "This message is from" + sender + ":" + message;
 
-
             MessageResource _message = MessageResource.Create(messageOptions);
             return result;
-        }
-
-        public void GetPolicyDetails()
-        {
-            string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
-            //string commandText = "";
-            DataSet dsPolicyDetails = new DataSet();
-            DataTable dtPolicyDetails = new DataTable();
-            try
-            {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(Commands.GetPolicyDetails, new NpgsqlConnection(connstring));
-                // reset DataSet before i do
-                dsPolicyDetails.Reset();
-
-                // filling DataSet with result from NpgsqlDataAdapter
-                dataAdapter.Fill(dsPolicyDetails);
-
-                // since it C# DataSet can handle multiple tables, we will select first
-                dtPolicyDetails = dsPolicyDetails.Tables[0];
-                _policyDetails = MapPolicyDetailValues(dtPolicyDetails).ToList<PolicyDetails>();
-            }
-            catch { }
-            finally { _dbcon.Close(); }
         }
 
         public void GetUserDetails()
         {
             string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
-            //string commandText = "";
             DataSet dsSophos = new DataSet();
             DataTable dtSophos = new DataTable();
             try
@@ -139,7 +115,7 @@ namespace SophosSyslogWorkerService
 
                 // since it C# DataSet can handle multiple tables, we will select first
                 dtSophos = dsSophos.Tables[0];
-                _users = MapUserValues(dtSophos).ToList<User>();
+                _users = ModelMapper.MapUserValues(dtSophos).ToList<User>();
             }
             catch { }
             finally { _dbcon.Close(); }
@@ -148,7 +124,6 @@ namespace SophosSyslogWorkerService
         public void GetActionDetails()
         {
             string? connstring = _configuration.GetSection("ConnectionStrings").GetSection("SyslogDB_Windows").Value;
-            //string commandText = "";
             DataSet dsSophos = new DataSet();
             DataTable dtSophos = new DataTable();
             try
@@ -163,67 +138,13 @@ namespace SophosSyslogWorkerService
                 // since it C# DataSet can handle multiple tables, we will select first
                 dtSophos = dsSophos.Tables[0];
 
-                _eventAction = MapEventActionValues(dtSophos).ToList<EventAction>();
+                _eventAction = ModelMapper.MapEventActionValues(dtSophos).ToList<EventAction>();
             }
             catch { }
             finally { _dbcon.Close(); }
         }
 
-        private IList<PolicyDetails> MapPolicyDetailValues(DataTable dtPolicyDetails)
-        {
-            IList<PolicyDetails> policyDetails = dtPolicyDetails.AsEnumerable().Select(row =>
-                new PolicyDetails(row.Field<int>("id"), row.Field<Guid>("policy_id"), row.Field<string>("name"), row.Field<string>("type"), row.Field<string>("created_by"), row.Field<DateTime>("created_on"), row.Field<string>("settings"), row.Field<Guid>("owner_id"), row.Field<bool>("is_deleted"))).ToList();
-            return policyDetails;
-        }
+       
 
-        private IList<User> MapUserValues(DataTable dtSophos)
-        {
-            IList<User> users = dtSophos.AsEnumerable().Select(row =>
-                new User
-                {
-                    ID = row.Field<Guid>("user_id"),
-                    Name = row.Field<string>("user_name"),
-                    PrimaryEmail = row.Field<string>("user_email_primary"),
-                    PrimaryMobile = row.Field<string>("user_mobile_primary"),
-                    SecondaryEmail = row.Field<string>("user_email_secondary"),
-                    SecondaryMobile = row.Field<string>("user_mobile_secondary"),
-                }).ToList();
-            return users;
-        }
-
-        private IList<EventAction> MapEventActionValues(DataTable dtSophos)
-        {
-            IList<EventAction> eventAction = dtSophos.AsEnumerable().Select(row =>
-                 new EventAction
-                 {
-                     Name = row.Field<string>("event_class_name"),
-                     Type = row.Field<string>("event_type_name"),
-                     Action = row.Field<string>("event_action_name"),
-                     ByEmail = row.Field<bool>("event_action_by_mail"),
-                     BySMS = row.Field<bool>("event_action_by_sms"),
-
-                 }).ToList();
-            return eventAction;
-        }
-
-        private bool IsValidPolicy()
-        {
-            return true;
-        }
-
-        public bool ApplyPolicyToUser()
-        {
-            GetPolicyDetails();
-            
-            if (IsValidPolicy())
-            {
-                foreach (PolicyDetails policy in _policyDetails)
-                {
-                    string uid = policy.settings;
-                }
-                return true;
-            }
-            return false;
-        }
     }
 }
